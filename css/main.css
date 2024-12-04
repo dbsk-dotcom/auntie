@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/* 가로 스크롤 방지 */
+body { overflow-x: hidden; font-family: "Noto Sans KR", sans-serif; line-height: 1.5;}
+.inner { width: 1600px; margin: 0 auto;}
+
+@keyframes rotate {
+
+0% { transform: rotate(0); }
+100% { transform: rotate(360deg); }
+}
+
+
+/* header */
+#header::after { animation: rotate 20s infinite linear; position: absolute; right: -130px; top: -130px; content: url(../images/circle_txt.png); }
+#header .inner { padding: 20px 0; align-items: center; display: flex; justify-content: space-between;}
+
+#header nav { margin-left: auto; margin-right: 50px; }
+#header .gnb {display: flex;}
+#header .gnb > li { position: relative; }
+
+#header .gnb > li .depth2 { display: none; left: calc(50% - 100px); width: 200px; padding: 20px 0; box-shadow: 5px 15px rgba(0,0,0,0.2); background: #fff; position: absolute; }
+#header .gnb > li:hover .depth2 {  display: block }
+#header .gnb > li > a { font-weight: 700; font-size: 18px; display: block; padding: 10px 40px;}
+#header .gnb > li .depth2 li a { display: block; padding: 5px 20px; }
+#header .gnb > li .depth2 li:hover a { color: #ff9e1a; }
+#header .gnb > li .depth2 li a:hover { background: #ff9e1a; color: #fff; }
+
+#header .ham { position: relative; z-index: 2; cursor: pointer; width: 50px; height: 50px; border-radius: 50%; box-shadow: 5px 5px 15px rgba(0,0,0,0.2); font-size: 0; background: url(../images/ham.svg) no-repeat center center / 80%; }
+/* main */
+#main h2 { text-transform: capitalize; font-weight: 400; font-size: 80px; color: #005ad5; font-family: "DM Serif Display", serif; }
+#main h2::before { color: #ff9e1a; font-size: 20px; display: block; content: "aubtie anne's"; }
+#main h2 + p {font-size: 20px; color: #999; }
+
+/* main_banner */
+.main_banner { text-align: center; } 
+/* menu */
+@keyframes swing {
+  0%,100% {transform: rotate(-3deg);}
+  50% { transform: rotate(3deg); }
+}
+
+.menu { padding: 200px 0; text-align: center; }
+.menu ul {display: flex; align-items: flex-start; }
+.menu ul li { position: relative; text-align: left; width: 50%; display: flex; align-items: center; }
+.menu ul li:nth-child(2) { margin-top: 200px; }
+
+.menu ul li::before { transition:all 0.5s; transform: scale(0); position: absolute; left: calc(50% - 240px); top: 0; content: url(../images/circle_dot.png); }
+.menu ul li:hover::before {transform: scale(1);}
+
+.menu ul li dl dt { padding-bottom: 30px; font-size: 30px; font-weight: 700; }
+.menu ul li dl dd { font-size: 18px; color: #999; }
+
+.menu ul li a { animation: swing 2s infinite;}
+
+
+/* brand */
+.brand { position: relative; height: 700px; overflow: hidden;}
+/* 멀티미디어 요소를 배경처럼 화면에 채우는 역할 */
+.brand video { object-fit: cover; width: 100%; height: 100%; }
+.brand .brand_txt { text-align: center; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); }
+.brand .brand_txt a { transition: all 0.5s; display: inline-block; margin-top: 50px; }
+.brand .brand_txt a:hover { transform: rotate(90deg) scale(1.1); }
+/* insta */
+.insta { padding: 200px 0 0; text-align: center; }
+.insta ul { margin-top: 50px; display: flex; gap: 50px;}
+.insta ul li { position: relative; overflow: hidden; border-radius: 50% 50% 0 0; width: calc((100% - 150px) / 4); }
+.insta ul li img { width: 100%; display: block; }
+.insta ul li a::before { transition: all 0.5s; opacity: 0; position: absolute; left: 0; top: 0; width: 100%; height: 100%; content: ""; background: rgba(0,0,0,0.8) url(../images/insta_fill.png) no-repeat center ; }
+.insta ul li:hover a::before { opacity: 1; }
+/* news */
+
+/* footer */
